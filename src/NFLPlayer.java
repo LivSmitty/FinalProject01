@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Created by scott_000 on 9/11/2016.
  */
@@ -13,6 +15,8 @@ public class NFLPlayer {
     int tackles;
     int sacks;
     int interceptions;
+    double averageSacks;
+    double averageTackles;
     private java.util.Date dateCreated;
 
 
@@ -50,6 +54,7 @@ public class NFLPlayer {
     }
 
     public double getRushingYards() {
+
         return rushingYards;
     }
 
@@ -94,6 +99,21 @@ public class NFLPlayer {
         return dateCreated;
     }
 
+    public double getAverageSacks(int sacks){
+        Scanner input = new Scanner(System.in);
+        System.out.println("How many games as he played this season? ");
+        int numberOfGames = input.nextInt();
+        averageSacks = sacks/numberOfGames;
+        return averageSacks;
+    }
+
+    public double getAverageTackles(int tackles){
+        Scanner input = new Scanner(System.in);
+        System.out.println("How many games as he played this season? ");
+        int numberOfGames = input.nextInt();
+        averageTackles = tackles/numberOfGames;
+        return averageTackles;
+    }
 }
 
 
