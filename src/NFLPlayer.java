@@ -9,14 +9,7 @@ public class NFLPlayer {
     long dateOfBirth;
     String teamName;
     String conference;
-    double passingYards;
-    double rushingYards;
-    double receivingYards;
-    int tackles;
-    int sacks;
-    int interceptions;
-    double averageSacks;
-    double averageTackles;
+
     private java.util.Date dateCreated;
 
 
@@ -45,6 +38,25 @@ public class NFLPlayer {
     public void setConference(String i) {
         conference = i;
     }
+
+
+
+
+
+
+    public java.util.Date getDateCreated() {
+        dateCreated = new java.util.Date();
+        return dateCreated;
+    }
+
+
+}
+
+class OffensivePlayer extends NFLPlayer{
+    double passingYards;
+    double rushingYards;
+    double receivingYards;
+
     public double getPassingYards() {
         return passingYards;
     }
@@ -70,6 +82,15 @@ public class NFLPlayer {
         receivingYards = i;
     }
 
+}
+
+class DefensivePlayer extends NFLPlayer{
+    int sacks;
+    int tackles;
+    int interceptions;
+    double averageSacks;
+    double averageTackles;
+
     public int getTackles() {
         return tackles;
     }
@@ -94,14 +115,9 @@ public class NFLPlayer {
         interceptions = i;
     }
 
-    public java.util.Date getDateCreated() {
-        dateCreated = new java.util.Date();
-        return dateCreated;
-    }
-
     public double getAverageSacks(int sacks){
         Scanner input = new Scanner(System.in);
-        System.out.println("How many games as he played this season? ");
+        System.out.println("How many games has he played this season? ");
         int numberOfGames = input.nextInt();
         averageSacks = sacks/numberOfGames;
         return averageSacks;
@@ -109,11 +125,11 @@ public class NFLPlayer {
 
     public double getAverageTackles(int tackles){
         Scanner input = new Scanner(System.in);
-        System.out.println("How many games as he played this season? ");
+        System.out.println("How many games has he played this season? ");
         int numberOfGames = input.nextInt();
         averageTackles = tackles/numberOfGames;
         return averageTackles;
     }
-}
 
+}
 
