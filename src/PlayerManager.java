@@ -8,14 +8,26 @@ import java.util.Scanner;
  */
 public class PlayerManager {
     public static void main(String[] args) {
-        //call method to add players, and store in array
-        //call method to print players to console
+        //Defensive or Offensive player
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter player names, separated by ' , ': ");
-        String playerName = input.nextLine();
-        createPlayers(playerName);
-    }
+        System.out.println("Defensive or Offensive player? (D for Defensive; O for Offensive):  ");
+        String playerType = input.nextLine();
 
+        //Get Name and DOB
+        System.out.println("Enter player's name: ");
+        String name = input.nextLine();
+        System.out.println("Enter player's DOB: ");
+        String dateOfBirth = input.nextLine();
+
+        //Create NFL Object
+        NFLPlayer newPlayer = new NFLPlayer();
+        newPlayer.name = name;
+        newPlayer.dateOfBirth = dateOfBirth;
+
+        //Implement Celebrator
+        newPlayer.celebrate();
+
+    }
 
     private static void createPlayers(String playerName){
         ArrayList<String> playerArray = new ArrayList<String>(Arrays.asList(playerName.split(" , ")));

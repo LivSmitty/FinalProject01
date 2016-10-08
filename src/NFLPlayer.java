@@ -1,14 +1,15 @@
+import java.util.Random;
 import java.util.Scanner;
 
 /**
  * Created by scott_000 on 9/11/2016.
  */
 
-public class NFLPlayer {
-    String name;
-    long dateOfBirth;
-    String teamName;
-    String conference;
+public class NFLPlayer implements Celebrator{
+    public String name;
+    public String dateOfBirth;
+    public String teamName;
+    public String conference;
 
     private java.util.Date dateCreated;
 
@@ -18,9 +19,17 @@ public class NFLPlayer {
 
     }
 
-    NFLPlayer(String x, long y) {
+    NFLPlayer(String x, String y) {
         name = x;
         dateOfBirth = y;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName() {
+        this.name = name;
     }
 
     public String getTeamName() {
@@ -39,23 +48,32 @@ public class NFLPlayer {
         conference = i;
     }
 
-
-
-
-
-
     public java.util.Date getDateCreated() {
         dateCreated = new java.util.Date();
         return dateCreated;
     }
 
+    @Override
+    public void celebrate() {
+        //Create array of reactions
+        String[] celebrate = new String[]{"dances", "sings", "jumps", "shouts", "spins"};
+
+        //Generate and print random reaction
+        int idx = new Random().nextInt(celebrate.length);
+        String random = (celebrate[idx]);
+        System.out.println(name + " " + random + " to celebrate his draft.");
+
+    }
+
 
 }
 
-class OffensivePlayer extends NFLPlayer{
+class OffensivePlayer extends NFLPlayer implements Celebrator {
     double passingYards;
     double rushingYards;
     double receivingYards;
+
+
 
     public double getPassingYards() {
         return passingYards;
@@ -82,14 +100,29 @@ class OffensivePlayer extends NFLPlayer{
         receivingYards = i;
     }
 
+
+    @Override
+    public void celebrate() {
+        //Create array of reactions
+        String[] celebrate = new String[]{"dances", "sings", "jumps", "shouts", "spins"};
+
+        //Randomly generate and print reaction
+        int idx = new Random().nextInt(celebrate.length);
+        String random = (celebrate[idx]);
+        System.out.println(name + " " + random + " to celebrate his draft.");
+
+    }
 }
 
-class DefensivePlayer extends NFLPlayer{
+class DefensivePlayer extends NFLPlayer implements Celebrator{
     int sacks;
     int tackles;
     int interceptions;
     double averageSacks;
     double averageTackles;
+
+
+
 
     public int getTackles() {
         return tackles;
@@ -129,6 +162,16 @@ class DefensivePlayer extends NFLPlayer{
         int numberOfGames = input.nextInt();
         averageTackles = tackles/numberOfGames;
         return averageTackles;
+    }
+
+    public void celebrate(){
+        //Create array of reactions
+        String[] celebrate = new String[]{"dances", "sings", "jumps", "shouts", "spins"};
+
+        //Get and print random reaction
+        int idx = new Random().nextInt(celebrate.length);
+        String random = (celebrate[idx]);
+        System.out.println(name + " " + random + " to celebrate his draft.");
     }
 
 }
