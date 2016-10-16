@@ -1,15 +1,28 @@
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+import java.lang.String.*;
+import static java.util.Arrays.*;
 
 /**
  * Created by scott_000 on 9/11/2016.
  */
 
-public class NFLPlayer implements Celebrator{
+public class NFLPlayer implements Celebrator {
+    int playerKey;
     public String name;
     public String dateOfBirth;
     public String teamName;
     public String conference;
+    public String playerType;
+    public double passingYards;
+    public double rushingYards;
+    public double receivingYards;
+    public double sacks;
+    public double tackle;
+    public double interceptions;
+    public ArrayList<String> playerArray = new ArrayList<String>();
+
+
+
 
     private java.util.Date dateCreated;
 
@@ -19,9 +32,20 @@ public class NFLPlayer implements Celebrator{
 
     }
 
-    NFLPlayer(String x, String y) {
-        name = x;
-        dateOfBirth = y;
+    NFLPlayer(String name, String DOB, String playerType, String teamName, String conference, double passingYards, double rushingYards,
+       double receivingYards, double sacks, double tackle, double interceptions ) {
+        this.playerKey = playerKey;
+        this.name = name;
+        this.dateOfBirth = DOB;
+        this.playerType = playerType;
+        this.teamName = teamName;
+        this.conference = conference;
+        this.passingYards = passingYards;
+        this.rushingYards = rushingYards;
+        this.receivingYards = receivingYards;
+        this.sacks = sacks;
+        this.tackle = tackle;
+        this.interceptions = interceptions;
     }
 
     public String getName() {
@@ -48,6 +72,34 @@ public class NFLPlayer implements Celebrator{
         conference = i;
     }
 
+
+
+
+
+
+
+
+
+    public static void formatOutput(){
+        System.out.print("Name"+ "                " + "DOB        " + "Off/Def          " + "Team             " + "Conference     " +
+        "Pass Yds      " + "Rush Yds    " + "Rec. Yds     " + "Sacks      " + "Tkls        " + "Int        ");
+
+
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "\n" + name + "     " + dateOfBirth + "       " + playerType + "      " + teamName + "      " + conference + "      " + passingYards
+                + "      " + rushingYards + "      " + receivingYards + "      " + sacks + "      " + tackle + "      " + interceptions;
+
+    }
+
+
+
+
+
     public java.util.Date getDateCreated() {
         dateCreated = new java.util.Date();
         return dateCreated;
@@ -64,6 +116,7 @@ public class NFLPlayer implements Celebrator{
         System.out.println(name + " " + random + " to celebrate his draft.");
 
     }
+
 
 
 }
